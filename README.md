@@ -3,6 +3,16 @@
 ## Project goal
 
 
+## Used hardware
+- Raspberry Pi 3
+- Arduino Nano
+- Radio module NRF24L01+
+- Air/Humidity sensor DHT-22
+- Onyx Beacon
+
+## Architecture
+
+
 ## Development process
 ### Setup of the controller (Raspberry Pi 3)
 - Install Raspbian Jessie Lite (Kernel 4.4) on Raspberry Pi 3
