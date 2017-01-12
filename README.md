@@ -70,17 +70,17 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 **Issue:** With the wrong baudrate configured, an error like `mysensors.mysensors: Error decoding message from gateway, probably received bad byte.` might occur. It has to be ensured that the baudrate set up in the Arduino sketch matches the baudrate configured in the MySensors section of Home-Assistant. 
 
 ## General commands
-Change to homeassistant user:
+- Change to homeassistant user:
 
 `sudo su -s /bin/bash homeassistant`
 
-Change to virtual enviroment:
+- Change to virtual enviroment:
 
 `source /srv/homeassistant/homeassistant_venv/bin/activate`
 
-Update HA (after activation of virtual environment):
+- Update HA (after activation of virtual environment):
 
 `pip3 install --upgrade homeassistant`
 
-Type `exit` to logout the hass user and return to the pi user. The home-assistant service can be restarted via `sudo service 
+- Type `exit` to logout the hass user and return to the pi user. The home-assistant service can be restarted via `sudo service 
 home-assistant restart` as pi user or the Services menu of Home-Assistant.
