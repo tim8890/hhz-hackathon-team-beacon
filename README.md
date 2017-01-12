@@ -2,7 +2,7 @@
 
 ## Project goal
 
-A sensor network as part of an IoT architecture should be implemented and beacons be deployed in order to provide access to the sensor data. The rooms at Herman Hollerith Centre shall be equipped with sensors measuring values like temperature, humidity and CO2 in order to assure an optimal climatic environemt for students and lecturers. The sensor data of distinct areas can be viewed via a web interface. The access to the web interface will be provided by BLE beacons that have Eddystone URL enabled.
+A sensor network as part of an IoT architecture should be implemented and beacons be deployed in order to provide access to the sensor data. The rooms at Herman Hollerith Centre shall be equipped with sensors measuring values like temperature, humidity and CO2 in order to assure an optimal climatic environment for students and lecturers. The sensor data of distinct areas can be viewed via a web interface. The access to the web interface will be provided by BLE beacons that have Eddystone URL enabled.
 
 Easy maintainability, stability as well as scalability are of highest importance. 
 
@@ -39,7 +39,8 @@ network={
 
 `sudo reboot`
 
-**Note:** Ideally the ethernet port should be used at HHZ as there are less obstacles to be overcome.
+**Note:** Ideally the ethernet interface (eth0) should be used at HHZ as there are less obstacles to be overcome.
+
 **Issue:** There is no static IP address for the Raspberry Pi as a DHCP server with IP leasing is used.
 
 - Expand file system and set timezone to 'Berlin' and keyboard layout to Generic 105-German in internationalization settings
@@ -53,19 +54,19 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 ```
 
 ### Setup of sensor network
-- Wire the radio to gateway and sensors (Arduino) according to [MySensors instructions](https://www.mysensors.org/build/connect_radio)
-- Wire measurement sensor (DHT22) to Arduino according to [MySensors instructions](https://www.mysensors.org/build/humidity)
-- Upload sketches to Arduinos following the [official guide](https://www.arduino.cc/en/Main/Howto)
+- Wire the radio to gateway and sensors (Arduino) according to [MySensors instructions](https://www.mysensors.org/build/connect_radio).
+- Wire measurement sensor (DHT22) to Arduino according to [MySensors instructions](https://www.mysensors.org/build/humidity).
+- Upload sketches to Arduinos following the [official guide](https://www.arduino.cc/en/Main/Howto).
 
-**Issue:** When using an Arduino clone with CH340 USB chip there is currently no official USB FTDI driver so that the Arduino IDE will not find the USB port for these clones. Installing the wrong unsigned driver will result in a kernel panic when connecting the Arduino. A fixed driver can be found [here](https://github.com/MaKin211/ch340g-ch34g-ch34x-mac-os-x-driver).
+**Issue:** When using an Arduino clone with CH340 USB chip on a Mac there is currently no official USB FTDI driver so that the Arduino IDE will not find the USB port for these clones. Installing a wrong unsigned driver will result in kernel panic when connecting the Arduino. A fixed driver can be found [here](https://github.com/MaKin211/ch340g-ch34g-ch34x-mac-os-x-driver).
 
-**Note:** For the DHT22 sensor to properly work the modified DHT-Library has to be imported as referenced in the [MySensors doc](https://www.mysensors.org/build/humidity)
+**Note:** For the DHT22 sensor to properly work the modified DHT-Library has to be imported as referenced in the [MySensors doc](https://www.mysensors.org/build/humidity).
 
 
 ### Configuration of Home-Assistant
 - The single point for configuration is the configuration.yaml inside `home/homeassistant/.homeassistant`. It is possible to outsource parts of the configuration for better maintainability.
 
-- Add the MySensors component according to [MySensors component doc](https://home-assistant.io/components/mysensors/)
+- Add the MySensors component according to [MySensors component doc](https://home-assistant.io/components/mysensors/).
 
 - As soon as Home-Assistant is restarted the reachable sensors will be added as entities and can be further used. Newly added sensors will be added automatically as they are seen by the Gateway.
 
