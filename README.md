@@ -18,8 +18,7 @@ Nodes -> Children Nodes
 ## Development process
 ### Setup of the controller (Raspberry Pi 3)
 - Install Raspbian Jessie Lite (Kernel 4.4) on Raspberry Pi 3
-- Enable SSH access by creating an empty 'ssh' file in root directory (/boot) of Raspberry Pi 3
-
+- Enable SSH access by creating an empty file titled `ssh` in root directory (/boot) of Raspberry Pi 3
 - Connect Raspberry Pi 3 via LAN (and configure WLAN via SSH)
 
 `ssh pi@raspberrypi` (use IP alternatively)
@@ -35,6 +34,8 @@ network={
 - Reboot Raspberry Pi 3
 ```
 sudo reboot
+
+**Note:** Alternatively the ethernet port can be used.
 ```
 - Expand file system and set timezone to 'Berlin' and keyboard layout to Generic 105-German in internationalization settings
 ```
@@ -46,34 +47,34 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 ```
 
 ### Setup of sensor network
-- Wire the radio to gateway and sensors (Arduino) according to MySensors instructions (https://www.mysensors.org/build/connect_radio)
-- Wire measurement sensor (DHT22) to Arduino according to MySensors instructions (https://www.mysensors.org/build/humidity)
-- Upload sketches to Arduinos following the official guide (https://www.arduino.cc/en/Main/Howto)
+- Wire the radio to gateway and sensors (Arduino) according to [MySensors instructions](https://www.mysensors.org/build/connect_radio)
+- Wire measurement sensor (DHT22) to Arduino according to [MySensors instructions](https://www.mysensors.org/build/humidity)
+- Upload sketches to Arduinos following the [official guide](https://www.arduino.cc/en/Main/Howto)
 
-Note: For the DHT22 sensor to properly work the modified DHT-Library has to be imported as referenced in (https://www.mysensors.org/build/humidity)
+**Note:** For the DHT22 sensor to properly work the modified DHT-Library has to be imported as referenced in the [MySensors doc](https://www.mysensors.org/build/humidity)
 
 
 ### Configuration of Home-Assistant
 - The single point for configuration is the configuration.yaml inside `home/homeassistant/.homeassistant`. It is possible to outsource parts of the configuration for better maintainability.
 
-- Add the MySensors component according to MySensors component instructions (https://home-assistant.io/components/mysensors/)
+- Add the MySensors component according to [MySensors component doc](https://home-assistant.io/components/mysensors/)
 
 - As soon as Home-Assistant is restarted the reachable sensors will be added as entities and can be further used. Newly added sensors will be added automatically as they are seen by the Gateway.
 
-- All sensors are persisted inside a .pickle file which guarantees that disconnected sensors will be recognized as soon as they are available again
+- All sensors are persisted inside a .pickle file which guarantees that disconnected sensors will be recognized as soon as they are available again instead of being identified as new ones.
 
 ## General commands
-Change to homeassistant user 
+Change to homeassistant user:
 
-```sudo su -s /bin/bash homeassistant```
+`sudo su -s /bin/bash homeassistant`
 
-Change to virtual enviroment
+Change to virtual enviroment:
 
-```source /srv/homeassistant/homeassistant_venv/bin/activate```
+`source /srv/homeassistant/homeassistant_venv/bin/activate`
 
-Update HA (after activation of virtual environment)
+Update HA (after activation of virtual environment):
 
-```pip3 install --upgrade homeassistant```
+`pip3 install --upgrade homeassistant`
 
 Type `exit` to logout the hass user and return to the pi user. The home-assistant service can be restarted via `sudo service 
 home-assistant restart` as pi user or the Services menu of Home-Assistant.
