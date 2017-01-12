@@ -1,0 +1,60 @@
+#################################
+##########    Views    ##########
+#################################
+
+default_view:
+  view: yes
+  entities:
+    - group.weather
+    - group.mysensors_hhz
+
+
+Room_125:
+  name: 'Raum 125'
+  view: yes
+  entities:
+    - group.mysensors_125
+
+
+Config:
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.systemmonitor
+
+
+#################################
+#########    Groups    ##########
+#################################
+
+weather:
+  name: Wetter
+  entities:
+    - sensor.weather_temperature
+    - sensor.weather_apparent_temperature
+    - sensor.weather_cloud_coverage
+    - sensor.weather_humidity
+    - sensor.weather_pressure
+    - sensor.weather_wind_speed
+
+mysensors_125:
+  name: Raum 125
+  entities:
+    - sensor.room_125_1_1
+    - sensor.room_125_1_0
+
+mysensors_hhz:
+  name: Sensoren
+  entities:
+    - sensor.room_125_1_1
+    - sensor.room_125_1_0
+    
+systemmonitor:
+  name: System
+  entities:
+    - sensor.cpu_use
+    - sensor.disk_use_
+    - sensor.disk_free_
+    - sensor.ram_use
+    - sensor.ram_free
+    - sensor.since_last_boot
