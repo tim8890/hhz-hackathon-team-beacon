@@ -1,0 +1,42 @@
+### Weather ###
+
+sensor.weather_apparent_temperature:
+  friendly_name: 'Gefühlte Temperatur'
+sensor.weather_cloud_coverage:
+  friendly_name: 'Wolkensituation'
+sensor.weather_humidity:
+  friendly_name: 'Luftfeuchtigkeit'
+sensor.weather_pressure:
+  friendly_name: 'Luftdruck'
+sensor.weather_temperature:
+  friendly_name: 'Temperatur'
+sensor.weather_icon:
+  friendly_name: 'Icon'
+sensor.weather_wind_speed:
+  friendly_name: 'Windgeschwindigkeit'
+
+
+### MySensors ###
+
+sensor.room_125_1_1:
+  friendly_name: 'Temperatur (Raum 125)'
+  icon: mdi:thermometer
+sensor.room_125_1_0:
+  friendly_name: 'Luftfeuchtigkeit (Raum 125)'
+  icon: mdi:water-percent
+
+
+### System Monitor ###
+
+sensor.cpu_use:
+  friendly_name: 'Auslastung CPU'
+sensor.disk_use_:
+  friendly_name: 'Auslastung Festplattenspeicher'
+sensor.disk_free_:
+  friendly_name: 'Freier Festplattenspeicher'
+sensor.ram_use:
+  friendly_name: 'Auslastung Arbeitsspeicher'
+sensor.ram_free:
+  friendly_name: 'Freier Arbeitsspeicher'
+sensor.since_last_boot:
+  friendly_name: 'Systemlaufzeit seit letztem Start'
