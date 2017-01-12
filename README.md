@@ -20,7 +20,7 @@ Nodes -> Children Nodes
 - Install Raspbian Jessie Lite (Kernel 4.4) on Raspberry Pi 3
 - Enable SSH access by creating an empty 'ssh' file in root directory (/boot) of Raspberry Pi 3
 
-- Connect Raspberry Pi 3 via LAN and configure WLAN via SSH
+- Connect Raspberry Pi 3 via LAN (and configure WLAN via SSH)
 
 `ssh pi@raspberrypi` (use IP alternatively)
 `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`
@@ -48,6 +48,10 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 ### Setup of sensor network
 - Wire the radio to gateway and sensors (Arduino) according to MySensors instructions (https://www.mysensors.org/build/connect_radio)
 - Wire measurement sensor (DHT22) to Arduino according to MySensors instructions (https://www.mysensors.org/build/humidity)
+- Upload sketches to Arduinos following the official guide (https://www.arduino.cc/en/Main/Howto)
+
+Note: For the DHT22 sensor to properly work the modified DHT-Library has to be imported as referenced in (https://www.mysensors.org/build/humidity)
+
 
 ### Configuration of Home-Assistant
 - The single point for configuration is the configuration.yaml inside `home/homeassistant/.homeassistant`. It is possible to outsource parts of the configuration for better maintainability.
