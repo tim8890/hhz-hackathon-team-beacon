@@ -2,6 +2,10 @@
 
 ## Project goal
 
+A sensor network as part of an IoT architecture should be implemented and beacons be deployed in order to provide access to the sensor data. The rooms at Herman Hollerith Centre shall be equipped with sensors measuring values like temperature, humidity and CO2 in order to assure an optimal climatic environemt for students and lecturers. The sensor data of distinct areas can be viewed via a web interface. The access to the web interface will be provided by BLE beacons that have Eddystone URL enabled.
+
+Easy maintainability, stability as well as scalability are of highest importance. 
+
 
 ## Used hardware
 - Raspberry Pi 3
