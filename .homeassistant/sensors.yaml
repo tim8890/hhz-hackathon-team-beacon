@@ -1,0 +1,21 @@
+- platform: darksky
+  api_key: 2b0a14341b4c67db191f708c7d6dea4e
+  name: weather
+  monitored_conditions:
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - cloud_cover
+    - humidity
+    - pressure
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: disk_free
+      arg: /
+    - type: memory_use_percent
+    - type: memory_free
+    - type: processor_use
+    - type: since_last_boot
