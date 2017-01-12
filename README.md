@@ -32,16 +32,18 @@ network={
 }
 ```
 - Reboot Raspberry Pi 3
-```
-sudo reboot
 
-**Note:** Alternatively the ethernet port can be used.
-```
+`sudo reboot`
+
+**Note:** Ideally the ethernet port should be used at HHZ as there are less obstacles to be overcome.
+**Issue:** There is no static IP address for the Raspberry Pi as a DHCP server with IP leasing is used.
+
 - Expand file system and set timezone to 'Berlin' and keyboard layout to Generic 105-German in internationalization settings
-```
-sudo raspi-config
-```
+
+`sudo raspi-config`
+
 - Install Home Assistant on Raspberry Pi 3
+
 ```
 wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
 ```
@@ -50,6 +52,8 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 - Wire the radio to gateway and sensors (Arduino) according to [MySensors instructions](https://www.mysensors.org/build/connect_radio)
 - Wire measurement sensor (DHT22) to Arduino according to [MySensors instructions](https://www.mysensors.org/build/humidity)
 - Upload sketches to Arduinos following the [official guide](https://www.arduino.cc/en/Main/Howto)
+
+**Issue:** When using an Arduino clone with CH340 USB chip there is currently no official USB FTDI driver so that the Arduino IDE will not find the USB port for these clones. Installing the wrong unsigned driver will result in a kernel panic when connecting the Arduino. A fixed driver can be found [here](https://github.com/MaKin211/ch340g-ch34g-ch34x-mac-os-x-driver).
 
 **Note:** For the DHT22 sensor to properly work the modified DHT-Library has to be imported as referenced in the [MySensors doc](https://www.mysensors.org/build/humidity)
 
@@ -62,6 +66,8 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 - As soon as Home-Assistant is restarted the reachable sensors will be added as entities and can be further used. Newly added sensors will be added automatically as they are seen by the Gateway.
 
 - All sensors are persisted inside a .pickle file which guarantees that disconnected sensors will be recognized as soon as they are available again instead of being identified as new ones.
+
+**Issue:** With the wrong baudrate configured, an error like `mysensors.mysensors: Error decoding message from gateway, probably received bad byte.` might occur. It has to be ensured that the baudrate set up in the Arduino sketch matches the baudrate configured in the MySensors section of Home-Assistant. 
 
 ## General commands
 Change to homeassistant user:
