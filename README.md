@@ -12,6 +12,8 @@
 
 ## Architecture
 
+Nodes -> Children Nodes
+
 
 ## Development process
 ### Setup of the controller (Raspberry Pi 3)
@@ -47,10 +49,14 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 - Wire the radio to gateway and sensors (Arduino) according to MySensors instructions (https://www.mysensors.org/build/connect_radio)
 - Wire measurement sensor (DHT22) to Arduino according to MySensors instructions (https://www.mysensors.org/build/humidity)
 
+### Configuration of Home-Assistant
+- The single point for configuration is the configuration.yaml inside `home/homeassistant/.homeassistant`. It is possible to outsource parts of the configuration for better maintainability.
 
+- Add the MySensors component according to MySensors component instructions (https://home-assistant.io/components/mysensors/)
 
+- As soon as Home-Assistant is restarted the reachable sensors will be added as entities and can be further used. Newly added sensors will be added automatically as they are seen by the Gateway.
 
-
+- All sensors are persisted inside a .pickle file which guarantees that disconnected sensors will be recognized as soon as they are available again
 
 ## General commands
 Change to homeassistant user 
