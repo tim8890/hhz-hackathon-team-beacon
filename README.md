@@ -54,9 +54,16 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
 
 ## General commands
 Change to homeassistant user 
+
 ```sudo su -s /bin/bash homeassistant```
+
 Change to virtual enviroment
+
 ```source /srv/homeassistant/homeassistant_venv/bin/activate```
+
 Update HA (after activation of virtual environment)
+
 ```pip3 install --upgrade homeassistant```
-Type `exit` to logout the hass user and return to the pi user. The home-assistant service can be restarted via `sudo service home-assistant restart` as pi user or the Services menu of Home-Assistant.
+
+Type `exit` to logout the hass user and return to the pi user. The home-assistant service can be restarted via `sudo service 
+home-assistant restart` as pi user or the Services menu of Home-Assistant.
