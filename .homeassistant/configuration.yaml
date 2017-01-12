@@ -1,0 +1,36 @@
+homeassistant:
+  name: HHZ
+  latitude: 48.679763
+  longitude: 8.999435
+  elevation: 410
+  unit_system: metric
+  time_zone: Europe/Berlin
+  customize: !include customized.yaml
+
+frontend:
+
+http:
+
+updater:
+
+discovery:
+
+history:
+
+logbook:
+
+sun:
+
+group: !include groups.yaml
+
+sensor: !include sensors.yaml
+
+mysensors:
+  gateways:
+    - device: '/dev/ttyUSB0'
+      baud_rate: 115200
+  debug: true
+  optimistic: false
+  persistence: true
+  retain: true
+  version: 2.0
